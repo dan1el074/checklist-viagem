@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Checklist | Viagens</title>
+</head>
+    <body>
+        <main>
+            <div class="conteudo-box cronograma">
+                <h2>Cronograma:</h2>
+
+                <form action="" id="data">
+                    <input type="date" value="" id="novaData">
+                    <input type="submit" value="Salvar" class="salvar">
+                    <img src="img/calendario.svg" class="icon">
+                </form>
+
+                <form action="" id="destino">
+                    <input type="text" placeholder="Destino" id="novoDestino">
+                    <input type="submit" value="Salvar" class="salvar">
+                    <img src="img/sol.svg" class="icon">
+                </form>
+            </div>
+
+            <div class="conteudo-box chechlist">
+                <h2>Checklist da sua viagem:</h2>
+
+                <form action="" id="novoItem">
+                    <input type="number" placeholder="00" min="01" max="99" id="quantidade" required>
+                    <input type="text" placeholder="Nome do item" id="nome" required>
+                    <button type="submit" value="" class="cadastrar" id="submit"><img src="img/add.svg"></button>
+                </form>
+            </div>
+            
+            <form action="" class="lista" id="lista"></form>
+        </main>
+
+        <footer>
+            <h3>Make by <img src="img/dot.svg"> Daniel Vargas</h3>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+:root {
+    --cor-texto: #171717;
+    --cor-fundo: #F1F1F2;
+    --cor-secundaria: #5418CC;
+    --cinza-claro: #E5E5E5;
+    --cinza-escuro: #c6c6c6;
+    --cinza-escuro2: #A6A6A6;
+    --cor-delete: #c22e2e;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+/* //////////////// tipografia //////////////// */
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 12px
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.chechlist #nome::placeholder,
+.chechlist #quantidade::placeholder,
+.chechlist #quantidade,
+.lista label,
+.lista span,
+#nome {
+    color: var(--cor-texto);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* //////////////// main //////////////// */
+main {
+    margin: 30px 20px;
+    min-height: 84vh;
+}
+
+.conteudo-box {
+    margin-bottom: 30px;
+}
+
+.conteudo-box form {
+    display: flex;
+}
+
+.conteudo-box input {
+    width: 100%;
+    border: none;
+    padding: 20px 0 20px;
+    background-color: var(--cinza-claro);
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.cronograma input {
+    padding-left: 60px;
+    color: var(--cor-texto);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.cronograma input[type="date"] {
+    padding-left: 60px;
+    padding-right: 80px
+}
+
+.cronograma input::placeholder {
+    color: var(--cor-texto);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.cronograma .salvar {
+    position: absolute;
+    margin-right: 40px;
+    right: 0;
+    height: 50px;
+    width: 60px;
+    padding: 0;
+    margin-top: 6px;
+    border: none;
+    background-color: transparent;
+    color: var(--cor-secundaria);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.cronograma .icon {
+    position: absolute;
+    margin-left: 40px;
+    right: 0;
+    left: 0px;
+    height: 60px;
+    width: 23px;
+}
+
+.chechlist img {
+    width: 22px;
+    margin: 2px 1px 0 0;
+
+}
+
+#quantidade {
+    border-radius: 10px 0 0 10px;
+    width: 19%;
+    padding-left: 20px;
+}
+
+input:focus {
+    outline-color: var(--cor-secundaria);
+}
+
+.chechlist input:focus {
+    outline: none;
+}
+
+#nome {
+    border-radius: 0 10px 10px 0;
+    padding: 20px 60px 20px 20px;
+
+}
+
+#submit {
+    position: absolute;
+    width: 43px;
+    height: 43px;
+    right: 0;
+    margin: 9px 27px 0 0;
+    background-color: var(--cor-secundaria);
+    border-radius: 10px;
+    border: none
+}
+
+/* //////////////// lista //////////////// */
+.lista label {
+    border: 2px solid var(--cinza-escuro2);
+    border-radius: 10px;
+    display: block;
+    padding: 18px 20px 18px 75px;
+}
+
+.lista span {
+    position: absolute;
+    margin: 20px 0 0 50px;
+}
+
+.lista input {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: 18px 0 0 16px
+}
+
+.lista input:checked::before {
+    border: none;
+    width: 20px;
+    height: 20px;
+    color: var(--cor-secundaria);
+}
+
+.lista input:checked + label {
+    border: 2px solid var(--cor-secundaria)
+}
+
+input[type='checkbox'] {
+    accent-color: var(--cor-secundaria);
+}
+
+.btn-delete {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 0;
+    margin: -44px 31px 0 0;
+    background-color: var(--cor-delete);
+    border-radius: 6px;
+    border: none;
+}
+
+.btn-delete img {
+    width: 22px;
+    margin: 2px 0 0 -2px;
+}
+
+/* //////////////// footer //////////////// */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 80px;
+    width: 100%;
+    border-top: 2px solid var(--cinza-escuro2);
+    background-color: var(--cinza-escuro);
+}
+
+footer img {
+    width: 5px;
+    margin: 1px
+}
