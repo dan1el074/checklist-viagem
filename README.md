@@ -1,6 +1,6 @@
 # Checklist de Viagens
 
-Esse projeto foi, na verdade, uma prova pessoal de como estavam meus conhecimentos com o Javascript. Inspirado em um dos cursos da Alura, foi ótimo para ver o quanto eu avancei como desenvolvedor e como as tecnologias e frameworks como o Angular deixariam isso muito mais fácil de ser executado. 
+Esse projeto foi, na verdade, uma prova pessoal de como estavam meus conhecimentos com o Javascript. Inspirado em um dos cursos da Alura, foi ótimo para ver o quanto avancei como desenvolvedor e como as tecnologias e frameworks como o Angular deixariam isso muito mais fácil de ser executado. 
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
