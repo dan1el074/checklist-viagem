@@ -47,7 +47,7 @@ h3 {
 /* //////////////// main //////////////// */
 main {
     margin: 30px 20px;
-    min-height: 84vh;
+    min-height: 85vh;
 }
 
 .conteudo-box {
@@ -150,6 +150,10 @@ input:focus {
 }
 
 /* //////////////// lista //////////////// */
+.lista .item {
+    margin-bottom: 10px
+}
+
 .lista label {
     border: 2px solid var(--cinza-escuro2);
     border-radius: 10px;

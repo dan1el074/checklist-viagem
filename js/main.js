@@ -21,7 +21,7 @@ destino.addEventListener("submit", (event) => {
 })
 
 itens.forEach((element) => {
-    criaElemento(element)
+    renderizaElemento(element)
 })
 
 novoItem.addEventListener("submit", (event) => {
@@ -39,17 +39,22 @@ novoItem.addEventListener("submit", (event) => {
         itemAtual.id = itens[itens.length-1] ? (itens[itens.length-1]).id + 1 : 0
         itemAtual.check = false;
 
-        criaElemento(itemAtual)
-        
-        itens.push(itemAtual)
+        try{
+            itens.push(itemAtual)
+            renderizaElemento(itemAtual)
+        } catch {
+            event.preventDefault()
+            throw Error('não foi possível criar o elemento!')
+        }
     } else {
         itemAtual.id = existe.id
 
-        atualizaElemento(itemAtual)
-
-        console.log(existe)
-
-        itens[itens.findIndex( elemento => elemento.id === existe.id)] = itemAtual
+        try{
+            atualizaElemento(itemAtual)
+            itens[itens.findIndex( elemento => elemento.id === existe.id)] = itemAtual
+        } catch{
+            throw Error('Não foi possível atualizar o item!')
+        }
     }
 
     localStorage.setItem("itens", JSON.stringify(itens))
@@ -59,42 +64,27 @@ novoItem.addEventListener("submit", (event) => {
 })
 
 const elementosListados = document.querySelectorAll('input[type="checkbox"]')
-elementosListados.forEach((e) => {
-    e.addEventListener("click", (e) => {
-        const idElemento = e.target.id
+elementosListados.forEach((element) => {
+    element.addEventListener("click", (element) => {
+        const idElemento = element.target.id
         const indexElemento = itens.findIndex(elemento => elemento.id == idElemento)
 
-        if(e.target.checked) {
-            itens[indexElemento].check = true
-        } else {
-            itens[indexElemento].check = false
-        }
-
+        itens[indexElemento].check = !itens[indexElemento].check
+        
         localStorage.setItem("itens", JSON.stringify(itens))
     })
 })
 
-function criaElemento(object) {
+function renderizaElemento(object) {
     const novoItem = document.createElement('div')
 
-    const inputQuantidade = document.createElement('span')
-    inputQuantidade.innerText = object.quantidade
+    novoItem.classList.add('item')
+    novoItem.innerHTML = `
+        <span>${object.quantidade}</span>
+        <input type="checkbox" id="${object.id}">
+        <label for="${object.id}">${object.nome}</label>`
 
-    const checkbox = document.createElement('input')
-    checkbox.setAttribute("type","checkbox")
-    checkbox.setAttribute("id",object.id)
-
-    const label = document.createElement('label')
-    label.setAttribute("for", object.id)
-    label.innerText = object.nome
-    
-    const br = document.createElement('br')
-
-    novoItem.appendChild(inputQuantidade)
-    novoItem.appendChild(checkbox)
-    novoItem.appendChild(label)
-    novoItem.appendChild(btnDelete(object.id))
-    novoItem.appendChild(br)
+    novoItem.appendChild(renderizarBtnDelete(object.id))
     lista.appendChild(novoItem)
 
     if(object.check) {
@@ -102,28 +92,26 @@ function criaElemento(object) {
     }
 }
 
-function atualizaElemento(object) {
-    const element = document.getElementById(object.id).parentNode
-    element.querySelector('span').innerText = object.quantidade
-}
-
-function btnDelete(id) {
-    const imgDelete = document.createElement('img')
-    imgDelete.setAttribute("src","img/delete.svg")
-
+function renderizarBtnDelete(id) {
     const btnDelete = document.createElement('button')
+
     btnDelete.classList.add('btn-delete')
     btnDelete.setAttribute("type","submit")
     btnDelete.setAttribute("value","")
-    btnDelete.appendChild(imgDelete)
+    btnDelete.innerHTML = `<img src="img/delete.svg">`
 
     btnDelete.addEventListener("click", (event) => {
         // event.preventDefault()
-        const form = event.target.parentNode
-        deletaElemento(form.parentNode,id)
+        const itemForm = event.target.parentNode
+        deletaElemento(itemForm.parentNode, id)
     })
 
     return btnDelete
+}
+
+function atualizaElemento(object) {
+    const element = document.getElementById(object.id).parentNode
+    element.querySelector('span').innerText = object.quantidade
 }
 
 function deletaElemento(event, id) {
